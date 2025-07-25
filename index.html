@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAMA Market Research</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quantico&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-azul-oscuro: #1a104d;
+      --color-verde: #008538;
+      --color-rojo: #e40050;
+      --color-blanco: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quantico', sans-serif;
+      line-height: 1.6;
+      color: var(--color-azul-oscuro);
+      background-color: var(--color-blanco);
+    }
+
+    header {
+      background-color: var(--color-blanco);
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    nav a {
+      margin-left: 2rem;
+      text-decoration: none;
+      color: var(--color-azul-oscuro);
+      font-weight: bold;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: var(--color-verde);
+      margin-bottom: 1rem;
+      position: relative;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease-out;
+    }
+
+    .section-text {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease-out;
+    }
+
+    .animate {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      border: 2px solid var(--color-verde);
+      border-radius: 10px;
+      padding: 1.5rem;
+      background: #f9f9f9;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    footer {
+      background: var(--color-azul-oscuro);
+      color: var(--color-blanco);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    form input, form textarea {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      background-color: var(--color-rojo);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      nav a {
+        margin-left: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo-sma.png" alt="Logo SAMA">
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#metodologias">Metodologías</a>
+      <a href="#equipo">Sama Team</a>
+      <a href="#nosotros">Acerca de</a>
+      <a href="#contacto">Contáctenos</a>
+    </nav>
+  </header>
+
+  <section id="inicio">
+    <h2 class="section-title">Bienvenido a SAMA</h2>
+    <p class="section-text">
+      Somos expertos en investigación de mercados. Ayudamos a empresas a conocer su entorno, evaluar estrategias y tomar decisiones con datos.
+    </p>
+  </section>
+
+  <section id="servicios">
+    <h2 class="section-title">Productos y Servicios</h2>
+    <div class="cards">
+      <div class="card">Cliente misterioso / Auditorías PDV</div>
+      <div class="card">Encuestas / Sondeos de opinión</div>
+      <div class="card">Encuestas de hábitos y usos</div>
+      <div class="card">Encuestas en puntos de venta</div>
+      <div class="card">Chequeo PDV</div>
+      <div class="card">Encuestas de marca y sociales</div>
+    </div>
+  </section>
+
+  <section id="metodologias">
+    <h2 class="section-title">Metodologías</h2>
+    <p class="section-text">
+      Utilizamos estudios cuantitativos y metodologías mixtas. Empleamos encuestas a papel y lápiz, digitales y online, dependiendo de las necesidades del proyecto.
+    </p>
+  </section>
+
+  <section id="opiniones">
+    <h2 class="section-title">Tu opinión es muy valiosa</h2>
+    <p class="section-text">
+      Participa en nuestros estudios y podrás recibir incentivos. Cada proyecto cuenta con un presupuesto para reconocer tu tiempo y aportes.
+    </p>
+  </section>
+
+  <section id="equipo">
+    <h2 class="section-title">Sama Team</h2>
+    <p class="section-text">
+      ¿Quieres formar parte de nuestro equipo? Envía tu hoja de vida a <strong>samaartypub@hotmail.com</strong> y serás tenido en cuenta para nuevos proyectos.
+    </p>
+  </section>
+
+  <section id="nosotros">
+    <h2 class="section-title">Acerca de nosotros</h2>
+    <p class="section-text">
+      Sama Market Research es una empresa colombiana con más de 15 años de experiencia. Nuestra misión es ofrecer estudios confiables y accionables. Nuestra visión es ser referentes en Latinoamérica. Respetamos tu privacidad bajo la política de tratamiento de datos vigente.
+    </p>
+  </section>
+
+  <section id="contacto">
+    <h2 class="section-title">Contáctenos</h2>
+    <form>
+      <input type="text" placeholder="Nombre" required />
+      <input type="tel" placeholder="Celular" required />
+      <input type="email" placeholder="Email" required />
+      <textarea rows="4" placeholder="Cuéntenos su proyecto"></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 SAMA Market Research. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section-title, .section-text').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
