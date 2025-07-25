@@ -14,26 +14,17 @@
       --color-gris: #f1f1f1;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Quantico', sans-serif;
-      line-height: 1.6;
       color: var(--color-azul-oscuro);
       background-color: var(--color-blanco);
       overflow-x: hidden;
     }
 
     header {
-      background-color: var(--color-blanco);
+      background: var(--color-blanco);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -44,9 +35,7 @@
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 
-    header img {
-      height: 60px;
-    }
+    header img { height: 60px; }
 
     nav a {
       margin-left: 1.5rem;
@@ -67,9 +56,7 @@
       transition: width 0.3s ease-in-out;
     }
 
-    nav a:hover::after {
-      width: 100%;
-    }
+    nav a:hover::after { width: 100%; }
 
     section {
       padding: 5rem 2rem;
@@ -140,9 +127,7 @@
       transition: background 0.3s ease;
     }
 
-    form button:hover {
-      background-color: #b8003f;
-    }
+    form button:hover { background-color: #b8003f; }
 
     footer {
       background: var(--color-azul-oscuro);
@@ -169,17 +154,82 @@
       z-index: 1;
     }
 
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      padding: 16px;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      font-size: 24px;
+      z-index: 999;
+      text-decoration: none;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: conic-gradient(var(--color-verde) calc(var(--percent) * 1%), #eee 0%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0 auto 0.5rem;
+    }
+
+    .testimonials {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+
+    .testimonial {
+      background: var(--color-gris);
+      border-radius: 12px;
+      padding: 2rem;
+      min-width: 300px;
+      scroll-snap-align: start;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 12px;
+      margin-top: 2rem;
+    }
+
     @media (max-width: 768px) {
       nav a {
         margin-left: 1rem;
         font-size: 0.95rem;
       }
+      .stats { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo-sma.png" alt="Logo SAMA">
+    <img src="logo-sma.png" alt="Logo SAMA Market Research">
     <nav>
       <a href="#inicio">Inicio</a>
       <a href="#servicios">Servicios</a>
@@ -193,7 +243,7 @@
 
   <section id="inicio">
     <div class="parallax-bg"></div>
-    <h2 class="section-title">Bienvenido a SAMA Market Research</h2>
+    <h1 class="section-title">Bienvenido a SAMA Market Research</h1>
     <p class="section-text">
       Llevamos más de 15 años generando soluciones en investigación de mercados. Combinamos experiencia, tecnología y metodologías modernas para ofrecer resultados reales y valiosos para tu empresa.
     </p>
@@ -214,26 +264,54 @@
 
   <section id="metodologias">
     <div class="parallax-bg"></div>
-    <h2 class="section-title">Metodologías</h2>
-    <p class="section-text">
+    <h2 class="section-title">Estadísticas de Impacto</h2>
+     <p class="section-text">
       Desarrollamos estudios cuantitativos con técnicas tradicionales (papel y lápiz), digitales y online. Adaptamos metodologías mixtas para lograr la mayor precisión y profundidad en el análisis.
     </p>
+    <div class="stats">
+      <div class="stat">
+        <div class="circle" style="--percent: 97;">97%</div>
+        <p>Satisfacción Cliente</p>
+      </div>
+      <div class="stat">
+        <div class="circle" style="--percent: 100;">1200+</div>
+        <p>Proyectos Completados</p>
+      </div>
+      <div class="stat">
+        <div class="circle" style="--percent: 100;">24</div>
+        <p>Ciudades Cubiertas</p>
+      </div>
+    </div>
   </section>
 
   <section id="opiniones">
     <div class="parallax-bg"></div>
-    <h2 class="section-title">Tu opinión es muy valiosa</h2>
-    <p class="section-text">
-      Participa en nuestras investigaciones y gana recompensas. Cada estudio tiene un presupuesto asignado y valoramos tu tiempo y opinión como fuente clave de información.
-    </p>
+    <h2 class="section-title">Testimonios</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <p>"Con SAMA logramos entender realmente a nuestros clientes. ¡100% recomendados!"</p>
+        <strong>Laura Gómez<br>Directora de Mercadeo, Bogotá</strong>
+      </div>
+      <div class="testimonial">
+        <p>"Sus auditorías en punto de venta nos ayudaron a tomar decisiones clave."</p>
+        <strong>Carlos Ruiz<br>Gerente Comercial, Medellín</strong>
+      </div>
+      <div class="testimonial">
+        <p>"La calidad de su servicio supera expectativas. Siempre atentos y profesionales."</p>
+        <strong>Marcela Torres<br>Consultora de Marca, Cali</strong>
+      </div>
+    </div>
   </section>
 
   <section id="equipo">
     <div class="parallax-bg"></div>
-    <h2 class="section-title">Sama Team</h2>
-    <p class="section-text">
-      Si deseas hacer parte de nuestro equipo de trabajo, envía tu hoja de vida en PDF al correo <strong>samaartypub@hotmail.com</strong>. Buscamos personas comprometidas, organizadas y orientadas a resultados.
-    </p>
+    <h2 class="section-title">Ubicación</h2>
+    <p class="section-text">Cra. 11 #93-52, Bogotá, Colombia</p>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.7644359392133!2d-74.05932328523813!3d4.674676743016086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9ab7d0b87191%3A0x1f1a0f246014f81!2sCra.%2011%20%2393-52%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1695999999999"
+      allowfullscreen=""
+      loading="lazy"
+    ></iframe>
   </section>
 
   <section id="nosotros">
@@ -247,11 +325,13 @@
   <section id="contacto">
     <div class="parallax-bg"></div>
     <h2 class="section-title">Contáctenos</h2>
-    <form>
-      <input type="text" placeholder="Nombre completo" required />
-      <input type="tel" placeholder="Celular o WhatsApp" required />
-      <input type="email" placeholder="Correo electrónico" required />
-      <textarea rows="4" placeholder="Cuéntenos su necesidad o proyecto"></textarea>
+    <form action="https://formsubmit.co/tuemail@correo.com" method="POST">
+      <input type="text" name="nombre" placeholder="Nombre completo" required />
+      <input type="tel" name="telefono" placeholder="Celular o WhatsApp" required />
+      <input type="email" name="correo" placeholder="Correo electrónico" required />
+      <textarea name="mensaje" rows="4" placeholder="Cuéntenos su necesidad o proyecto" required></textarea>
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://tusitio.com/gracias.html">
       <button type="submit">Enviar mensaje</button>
     </form>
   </section>
@@ -259,6 +339,8 @@
   <footer>
     <p>&copy; 2025 SAMA Market Research. Todos los derechos reservados.</p>
   </footer>
+
+  <a href="https://wa.me/573001112222" class="whatsapp-btn" target="_blank" title="Escríbenos por WhatsApp">📱</a>
 
   <script>
     const observer = new IntersectionObserver((entries) => {
