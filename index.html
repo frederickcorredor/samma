@@ -11,6 +11,7 @@
       --color-verde: #008538;
       --color-rojo: #e40050;
       --color-blanco: #ffffff;
+      --color-gris: #f1f1f1;
     }
 
     * {
@@ -19,23 +20,28 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Quantico', sans-serif;
       line-height: 1.6;
       color: var(--color-azul-oscuro);
       background-color: var(--color-blanco);
+      overflow-x: hidden;
     }
 
     header {
       background-color: var(--color-blanco);
-      padding: 1rem;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 
     header img {
@@ -43,29 +49,45 @@
     }
 
     nav a {
-      margin-left: 2rem;
+      margin-left: 1.5rem;
       text-decoration: none;
       color: var(--color-azul-oscuro);
       font-weight: bold;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: var(--color-verde);
+      left: 0;
+      bottom: -3px;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     section {
-      padding: 4rem 2rem;
-      max-width: 1100px;
+      padding: 5rem 2rem;
+      max-width: 1200px;
       margin: auto;
+      position: relative;
     }
 
     .section-title {
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: var(--color-verde);
-      margin-bottom: 1rem;
-      position: relative;
+      margin-bottom: 1.5rem;
       opacity: 0;
       transform: translateY(50px);
       transition: all 1s ease-out;
     }
 
-    .section-text {
+    .section-text, .cards {
       opacity: 0;
       transform: translateY(50px);
       transition: all 1s ease-out;
@@ -78,21 +100,48 @@
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
 
     .card {
-      border: 2px solid var(--color-verde);
-      border-radius: 10px;
-      padding: 1.5rem;
-      background: #f9f9f9;
-      transition: transform 0.3s ease;
+      background: var(--color-gris);
+      border-left: 6px solid var(--color-verde);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
     .card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    form input, form textarea {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    form button {
+      background-color: var(--color-rojo);
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #b8003f;
     }
 
     footer {
@@ -102,28 +151,28 @@
       padding: 2rem;
     }
 
-    form input, form textarea {
-      display: block;
+    .parallax-bg {
+      background: url('logo-sma.png') center center no-repeat;
+      background-size: 30%;
+      opacity: 0.04;
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
     }
 
-    form button {
-      background-color: var(--color-rojo);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
+    section > *:not(.parallax-bg) {
+      position: relative;
+      z-index: 1;
     }
 
     @media (max-width: 768px) {
       nav a {
         margin-left: 1rem;
+        font-size: 0.95rem;
       }
     }
   </style>
@@ -135,67 +184,75 @@
       <a href="#inicio">Inicio</a>
       <a href="#servicios">Servicios</a>
       <a href="#metodologias">Metodologías</a>
-      <a href="#equipo">Sama Team</a>
-      <a href="#nosotros">Acerca de</a>
-      <a href="#contacto">Contáctenos</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#nosotros">Acerca</a>
+      <a href="#contacto">Contacto</a>
     </nav>
   </header>
 
   <section id="inicio">
-    <h2 class="section-title">Bienvenido a SAMA</h2>
+    <div class="parallax-bg"></div>
+    <h2 class="section-title">Bienvenido a SAMA Market Research</h2>
     <p class="section-text">
-      Somos expertos en investigación de mercados. Ayudamos a empresas a conocer su entorno, evaluar estrategias y tomar decisiones con datos.
+      Llevamos más de 15 años generando soluciones en investigación de mercados. Combinamos experiencia, tecnología y metodologías modernas para ofrecer resultados reales y valiosos para tu empresa.
     </p>
   </section>
 
   <section id="servicios">
+    <div class="parallax-bg"></div>
     <h2 class="section-title">Productos y Servicios</h2>
     <div class="cards">
-      <div class="card">Cliente misterioso / Auditorías PDV</div>
-      <div class="card">Encuestas / Sondeos de opinión</div>
+      <div class="card">Cliente Misterioso / Auditorías PDV</div>
+      <div class="card">Encuestas de opinión y percepción</div>
       <div class="card">Encuestas de hábitos y usos</div>
       <div class="card">Encuestas en puntos de venta</div>
-      <div class="card">Chequeo PDV</div>
-      <div class="card">Encuestas de marca y sociales</div>
+      <div class="card">Chequeo PDV y Seguimiento Publicitario</div>
+      <div class="card">Medición de Clima Organizacional</div>
     </div>
   </section>
 
   <section id="metodologias">
+    <div class="parallax-bg"></div>
     <h2 class="section-title">Metodologías</h2>
     <p class="section-text">
-      Utilizamos estudios cuantitativos y metodologías mixtas. Empleamos encuestas a papel y lápiz, digitales y online, dependiendo de las necesidades del proyecto.
+      Desarrollamos estudios cuantitativos con técnicas tradicionales (papel y lápiz), digitales y online. Adaptamos metodologías mixtas para lograr la mayor precisión y profundidad en el análisis.
     </p>
   </section>
 
   <section id="opiniones">
+    <div class="parallax-bg"></div>
     <h2 class="section-title">Tu opinión es muy valiosa</h2>
     <p class="section-text">
-      Participa en nuestros estudios y podrás recibir incentivos. Cada proyecto cuenta con un presupuesto para reconocer tu tiempo y aportes.
+      Participa en nuestras investigaciones y gana recompensas. Cada estudio tiene un presupuesto asignado y valoramos tu tiempo y opinión como fuente clave de información.
     </p>
   </section>
 
   <section id="equipo">
+    <div class="parallax-bg"></div>
     <h2 class="section-title">Sama Team</h2>
     <p class="section-text">
-      ¿Quieres formar parte de nuestro equipo? Envía tu hoja de vida a <strong>samaartypub@hotmail.com</strong> y serás tenido en cuenta para nuevos proyectos.
+      Si deseas hacer parte de nuestro equipo de trabajo, envía tu hoja de vida en PDF al correo <strong>samaartypub@hotmail.com</strong>. Buscamos personas comprometidas, organizadas y orientadas a resultados.
     </p>
   </section>
 
   <section id="nosotros">
-    <h2 class="section-title">Acerca de nosotros</h2>
+    <div class="parallax-bg"></div>
+    <h2 class="section-title">Acerca de Nosotros</h2>
     <p class="section-text">
-      Sama Market Research es una empresa colombiana con más de 15 años de experiencia. Nuestra misión es ofrecer estudios confiables y accionables. Nuestra visión es ser referentes en Latinoamérica. Respetamos tu privacidad bajo la política de tratamiento de datos vigente.
+      Somos una empresa colombiana con presencia nacional. Nuestra misión es generar confianza mediante datos confiables y útiles. Nuestra visión es ser referentes en Latinoamérica en investigación de mercados. Respetamos tu privacidad y cumplimos con la normativa de protección de datos personales.
     </p>
   </section>
 
   <section id="contacto">
+    <div class="parallax-bg"></div>
     <h2 class="section-title">Contáctenos</h2>
     <form>
-      <input type="text" placeholder="Nombre" required />
-      <input type="tel" placeholder="Celular" required />
-      <input type="email" placeholder="Email" required />
-      <textarea rows="4" placeholder="Cuéntenos su proyecto"></textarea>
-      <button type="submit">Enviar</button>
+      <input type="text" placeholder="Nombre completo" required />
+      <input type="tel" placeholder="Celular o WhatsApp" required />
+      <input type="email" placeholder="Correo electrónico" required />
+      <textarea rows="4" placeholder="Cuéntenos su necesidad o proyecto"></textarea>
+      <button type="submit">Enviar mensaje</button>
     </form>
   </section>
 
@@ -212,7 +269,7 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.section-title, .section-text').forEach(el => {
+    document.querySelectorAll('.section-title, .section-text, .cards').forEach(el => {
       observer.observe(el);
     });
   </script>
