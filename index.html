@@ -176,21 +176,24 @@
       margin-top: 2rem;
     }
 
-    .stat {
-      text-align: center;
-    }
-
-    .circle {
-      width: 120px;
-      height: 120px;
+    .circle-stat {
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
-      background: conic-gradient(var(--color-verde) calc(var(--percent) * 1%), #eee 0%);
+      background: conic-gradient(var(--color-verde) 0%, #eee 0%);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.5rem;
       font-weight: bold;
-      margin: 0 auto 0.5rem;
+      flex-direction: column;
+      transition: background 1s ease;
+    }
+
+    .circle-stat span {
+      font-size: 1.2rem;
+      font-weight: normal;
+      margin-top: 0.5rem;
     }
 
     .testimonials {
@@ -233,9 +236,9 @@
     <nav>
       <a href="#inicio">Inicio</a>
       <a href="#servicios">Servicios</a>
-      <a href="#metodologias">Metodologías</a>
+      <a href="#metodologias">Estadísticas</a>
       <a href="#opiniones">Opiniones</a>
-      <a href="#equipo">Equipo</a>
+      <a href="#equipo">Ubicación</a>
       <a href="#nosotros">Acerca</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -264,23 +267,15 @@
 
   <section id="metodologias">
     <div class="parallax-bg"></div>
+
     <h2 class="section-title">Estadísticas de Impacto</h2>
-     <p class="section-text">
+         <p class="section-text">
       Desarrollamos estudios cuantitativos con técnicas tradicionales (papel y lápiz), digitales y online. Adaptamos metodologías mixtas para lograr la mayor precisión y profundidad en el análisis.
     </p>
     <div class="stats">
-      <div class="stat">
-        <div class="circle" style="--percent: 97;">97%</div>
-        <p>Satisfacción Cliente</p>
-      </div>
-      <div class="stat">
-        <div class="circle" style="--percent: 100;">1200+</div>
-        <p>Proyectos Completados</p>
-      </div>
-      <div class="stat">
-        <div class="circle" style="--percent: 100;">24</div>
-        <p>Ciudades Cubiertas</p>
-      </div>
+      <div class="circle-stat" data-percent="97" data-label="Satisfacción">0%<span>Satisfacción</span></div>
+      <div class="circle-stat" data-percent="100" data-label="Proyectos">0+<span>Proyectos</span></div>
+      <div class="circle-stat" data-percent="100" data-label="Ciudades">0<span>Ciudades</span></div>
     </div>
   </section>
 
@@ -347,11 +342,30 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate');
+
+          if (entry.target.classList.contains('circle-stat')) {
+            const el = entry.target;
+            const target = parseInt(el.getAttribute('data-percent'), 10);
+            let count = 0;
+            const step = Math.ceil(target / 30);
+
+            const interval = setInterval(() => {
+              count += step;
+              if (count >= target) {
+                count = target;
+                clearInterval(interval);
+              }
+
+              const suffix = el.dataset.label === "Proyectos" ? "+" : "%";
+              el.innerHTML = `${count}${suffix}<span>${el.dataset.label}</span>`;
+              el.style.background = `conic-gradient(var(--color-verde) ${count}%, #eee 0%)`;
+            }, 30);
+          }
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.4 });
 
-    document.querySelectorAll('.section-title, .section-text, .cards').forEach(el => {
+    document.querySelectorAll('.section-title, .section-text, .cards, .circle-stat').forEach(el => {
       observer.observe(el);
     });
   </script>
