@@ -19,23 +19,35 @@
     body {
       font-family: 'Quantico', sans-serif;
       color: var(--color-azul-oscuro);
-      background-color: var(--color-blanco);
       overflow-x: hidden;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffffff, #acacac);
     }
 
     header {
-      background: var(--color-blanco);
+      background: linear-gradient(135deg, #ffffffcc, #fffffff6);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
-      top: 0;
+      top: 6px;
       z-index: 1000;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.849);
+      border-radius: 16px;
+      width: 80vw;
+      transition: .7s ease;
     }
 
-    header img { height: 60px; }
+    header:hover {
+      box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.849);
+      transform: scale(1.02);
+    }
+
+    header img { height: 45px; }
 
     nav a {
       margin-left: 1.5rem;
@@ -59,20 +71,121 @@
     nav a:hover::after { width: 100%; }
 
     section {
+      width: 100vw;
       padding: 5rem 2rem;
       max-width: 1200px;
       margin: auto;
       position: relative;
     }
 
+    #inicio{
+      margin-top: -80px;
+      background-image: url('fondobanner.gif');
+      min-height: 85vh;
+      background-size: cover;
+      display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    padding-left: 10%;
+      background-position: center;
+      position: relative;
+      width: 98vw;
+      max-width: 1600px;
+      border-bottom-left-radius: 64px;
+      border-bottom-right-radius: 64px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .contenedorinicio {
+      text-align: left;
+      color: var(--color-blanco);
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.856);
+      border-radius: 12px;
+      max-width: 600px;
+      border: 2px solid var(--color-verde);
+        box-shadow:
+    inset -3px -3px 6px rgba(255, 255, 255, 0.07),
+    inset 4px 4px 10px rgba(0, 0, 0, 0.7),
+
+    -3px -3px 8px rgba(255, 255, 255, 0.12),
+    8px 8px 24px rgba(0, 0, 0, 0.8),
+    0 0 22px rgba(0, 255, 0, 0.25);
+      transform: perspective(1000px) rotateX(1deg) rotateY(9deg);
+      transition: transform 0.7s ease, box-shadow 0.7s ease;
+    }
+
+    .contenedorinicio:hover {
+  transform: perspective(1000px) translateZ(24px) scale(1.02);
+
+}
+
+
+.imagenbanner {
+  width: 33%;
+  position: absolute; 
+  bottom: 0px;
+  right: 10%; min-width: 300px;
+  z-index: 5;
+    }
+    
+
     .section-title {
-      font-size: 2.5rem;
-      color: var(--color-verde);
+      font-size: 2rem;
+      color: #008538;
       margin-bottom: 1.5rem;
       opacity: 0;
       transform: translateY(50px);
       transition: all 1s ease-out;
     }
+
+    #titulobanner{
+      color: white;
+    }
+
+    .linea-verde {
+    width: 100%;
+    height: 230px;
+    position: absolute;
+    background-color: #008538;
+    bottom: -160px;
+    right: 0px;
+    border-top-left-radius: 100%;
+    z-index: 1;
+    -webkit-animation: slide-in-bottom 1.7s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    animation: slide-in-bottom 1.7s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+.linea-blanca {
+    width: 100%;
+    height: 105px;
+    position: absolute;
+    background-color: #ffffff;
+    bottom: -83px;
+    border-top-left-radius: 32%;
+    right: 0px;
+    z-index: 3;
+    -webkit-animation: slide-in-bottom 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    animation: slide-in-bottom 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+.linea-azul {
+    width: 100%;
+    height: 72px;
+    position: absolute;
+    background-color:#1a104d;
+    bottom: -53px;
+    right: 0px;
+    border-top-left-radius: 100%;
+    z-index: 5;
+    -webkit-animation: slide-in-bottom .5s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    animation: slide-in-bottom 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
 
     .section-text, .cards {
       opacity: 0;
@@ -84,6 +197,8 @@
       opacity: 1 !important;
       transform: translateY(0) !important;
     }
+
+
 
     .cards {
       display: grid;
@@ -99,11 +214,57 @@
       padding: 2rem;
       box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+      min-height: 108.8px;
+
+      p{
+        position: relative;
+        z-index: 2;
+        transition: .7s ease;
+      }
+
+          .icono{
+      display: block;
+      width: 70px;
+      height: auto;
+      position: absolute;
+      bottom: 20%;
+      left: 16px;
+      transition: .7s ease;
+      opacity: 0;
+    }
+
+    span{
+      position: absolute;
+      bottom: 6px;
+      right: 16px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: .7s ease;
+    }
+    
     }
 
     .card:hover {
       transform: translateY(-8px);
       box-shadow: 0 12px 16px rgba(0, 0, 0, 0.12);
+
+            p{
+        position: relative;
+        z-index: 2;
+        padding-left: 70px;
+        font-size: 14px;
+      }
+
+          .icono{
+      transform: rotate(-360deg);
+      opacity: 1;
+    }
+
+    span{
+      text-decoration: underline;
+      transform: scale(1.1);
+    }
     }
 
     form input, form textarea {
@@ -136,23 +297,6 @@
       padding: 2rem;
     }
 
-    .parallax-bg {
-      background: url('logo-sma.png') center center no-repeat;
-      background-size: 30%;
-      opacity: 0.04;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    section > *:not(.parallax-bg) {
-      position: relative;
-      z-index: 1;
-    }
 
     .whatsapp-btn {
       position: fixed;
@@ -240,13 +384,54 @@
       margin-top: 2rem;
     }
 
+
+
     @media (max-width: 768px) {
       nav a {
         margin-left: 1rem;
         font-size: 0.95rem;
       }
       .stats { flex-direction: column; align-items: center; }
+
+      #inicio{
+        
+        justify-content: flex-start;
+        margin-top: -2px;
+        padding-left: 16px;
+      }
+
+      header{
+        width: 100%;
+        padding: 1rem;
+        top:0px;
+      }
     }
+
+    @-webkit-keyframes slide-in-bottom {
+0% {
+  -webkit-transform: translateY(1000px);
+          transform: translateY(1000px);
+  opacity: 0;
+}
+100% {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
+}
+}
+@keyframes slide-in-bottom {
+0% {
+  -webkit-transform: translateY(1000px);
+          transform: translateY(1000px);
+  opacity: 0;
+}
+100% {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
+}
+}
+
   </style>
 </head>
 <body>
@@ -262,30 +447,33 @@
       <a href="#contacto">Contacto</a>
     </nav>
   </header>
-
+<main>
   <section id="inicio">
-    <div class="parallax-bg"></div>
-    <h1 class="section-title">Bienvenido a SAMA Market Research</h1>
+    <div class="contenedorinicio">
+          <h1 class="section-title" id="titulobanner">Bienvenido a: <br> SAMA Market Research</h1>
     <p class="section-text">
       Llevamos más de 15 años generando soluciones en investigación de mercados. Combinamos experiencia, tecnología y metodologías modernas para ofrecer resultados reales y valiosos para tu empresa.
     </p>
+    </div>
+    <img src="1.webp" alt="" class="imagenbanner">
+    <div class="linea-verde"></div>
+        <div class="linea-blanca"></div>
+        <div class="linea-azul"></div>
   </section>
 
   <section id="servicios">
-    <div class="parallax-bg"></div>
     <h2 class="section-title">Productos y Servicios</h2>
     <div class="cards">
-      <div class="card">Cliente Misterioso / Auditorías PDV</div>
-      <div class="card">Encuestas de opinión y percepción</div>
-      <div class="card">Encuestas de hábitos y usos</div>
-      <div class="card">Encuestas en puntos de venta</div>
-      <div class="card">Chequeo PDV y Seguimiento Publicitario</div>
-      <div class="card">Medición de Clima Organizacional</div>
+      <div class="card"><p>Cliente Misterioso / Auditorías PDV</p> <img src="2.webp" alt="" class="icono"> <span>Saber más</span></div>
+      <div class="card"><p>Encuestas de opinión y percepción</p><img src="2.webp" alt="" class="icono"><span>Saber más</span></div>
+      <div class="card"><p>Encuestas de hábitos y usos</p><img src="2.webp" alt="" class="icono"><span>Saber más</span></div>
+      <div class="card"><p>Encuestas en puntos de venta</p><img src="2.webp" alt="" class="icono"><span>Saber más</span></div>
+      <div class="card"><p>Chequeo PDV y Seguimiento Publicitario</p><img src="2.webp" alt="" class="icono"><span>Saber más</span></div>
+      <div class="card"><p>Medición de Clima Organizacional</p><img src="2.webp" alt="" class="icono"><span>Saber más</span></div>
     </div>
   </section>
 
   <section id="metodologias">
-    <div class="parallax-bg"></div>
 
     <h2 class="section-title">Estadísticas de Impacto</h2>
          <p class="section-text">
@@ -299,7 +487,6 @@
   </section>
 
   <section id="opiniones">
-    <div class="parallax-bg"></div>
     <h2 class="section-title">Testimonios</h2>
     <div class="testimonials">
       <div class="testimonial">
@@ -318,7 +505,6 @@
   </section>
 
   <section id="equipo">
-    <div class="parallax-bg"></div>
     <h2 class="section-title">Ubicación</h2>
     <p class="section-text">Cra. 11 #93-52, Bogotá, Colombia</p>
     <iframe
@@ -329,7 +515,6 @@
   </section>
 
   <section id="nosotros">
-    <div class="parallax-bg"></div>
     <h2 class="section-title">Acerca de Nosotros</h2>
     <p class="section-text">
       Somos una empresa colombiana con presencia nacional. Nuestra misión es generar confianza mediante datos confiables y útiles. Nuestra visión es ser referentes en Latinoamérica en investigación de mercados. Respetamos tu privacidad y cumplimos con la normativa de protección de datos personales.
@@ -337,7 +522,6 @@
   </section>
 
   <section id="contacto">
-    <div class="parallax-bg"></div>
     <h2 class="section-title">Contáctenos</h2>
     <form action="https://formsubmit.co/tuemail@correo.com" method="POST">
       <input type="text" name="nombre" placeholder="Nombre completo" required />
@@ -349,7 +533,7 @@
       <button type="submit">Enviar mensaje</button>
     </form>
   </section>
-
+</main>
   <footer>
     <p>&copy; 2025 SAMA Market Research. Todos los derechos reservados.</p>
   </footer>
