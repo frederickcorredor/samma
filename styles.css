@@ -360,6 +360,7 @@
       scroll-snap-type: x mandatory;
       gap: 2rem;
       padding: 2rem 0;
+      max-width: 640px;
     }
 
     .testimonial {
@@ -457,10 +458,6 @@
         padding-bottom: 0px;
         h2{
             width: 100%;
-            max-width: 1200px;
-        }
-
-        div{
             max-width: 1200px;
         }
     }
