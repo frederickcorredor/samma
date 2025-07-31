@@ -272,17 +272,17 @@
     }
 
     form button {
-      background-color: var(--color-rojo);
+      background-color: var(--color-verde);
       color: white;
       padding: 1rem 2rem;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       font-size: 1rem;
-      transition: background 0.3s ease;
+      transition: 0.7s ease;
     }
 
-    form button:hover { background-color: #b8003f; }
+    form button:hover { transform: scale(1.02); }
 
     footer {
       background: var(--color-azul-oscuro);
@@ -361,6 +361,8 @@
       gap: 2rem;
       padding: 2rem 0;
       max-width: 640px;
+      z-index:2;
+      position: relative;
     }
 
     .testimonial {
@@ -429,11 +431,11 @@
       border-radius: 16px;
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       flex-direction: column;
       border-radius: 64px;
-      width: 95vw;
+      width: 100vw;
 
       h2{
         color: white;
@@ -455,10 +457,20 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        padding-bottom: 0px;
+        background-image: url('fondobanner3.gif');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        width: 100vw;
+        overflow-y: hidden;
+        padding: 2rem;
+      
         h2{
             width: 100%;
             max-width: 1200px;
+            margin-bottom: -25px;
+        
+            
         }
     }
 
